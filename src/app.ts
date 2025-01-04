@@ -1,12 +1,30 @@
-import express from "express";
-import bodyParser from "body-parser";
-// import cors from "cors";
-// import studentRoutes from "./routes/student.routes";
+import express, { Application, Request, Response } from 'express';
+import dotenv from 'dotenv';
+import { connect_database } from './config/mongoConnection';
 
-const app = express();
+dotenv.config();
 
+const app: Application = express();
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // app.use(cors());
-app.use(bodyParser.json());
-// app.use("/api/students", studentRoutes);
+
+app.get('/apple', (req: Request, res: Response) => {
+  res.send({
+    message: 'Welcome to the Student Management API!',
+    status: 'success',
+  });
+});
+
+connect_database()
+  .then(() => {
+    console.log('Database connection established..');
+  })
+  .catch((e) => {
+    console.error('Error in connection', e);
+    process.exit(1);
+  });
 
 export default app;

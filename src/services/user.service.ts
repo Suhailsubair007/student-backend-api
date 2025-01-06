@@ -20,15 +20,14 @@ export class UserService {
     if (!user || !(await bcrypt.compare(password, user.password))) {
       throw new Error('Invalid credentials');
     }
-  
-    // Return only non-sensitive fields
+    
     return {
       message: 'Login successful',
       user: {
         id: user.id,
         name: user.name,
         email: user.email,
-        role: user.role,
+        role: user.role, 
       },
     };
   }

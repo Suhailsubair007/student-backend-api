@@ -13,18 +13,8 @@ export class AdminController {
       const students = await this.userService.getAllStudents();
       res.status(200).json({ success: true, data: students });
     } catch (error) {
-      next(error);
+      next(error); 
     }
-  }
+  }  
 
-  async updateUser(req: Request, res: Response, next: NextFunction) {
-    try {
-      const userId = req.params.id;
-      const updates = req.body;
-      const user = await this.userService.updateUser(userId, updates);
-      res.status(200).json({ success: true, data: user });
-    } catch (error) {
-      next(error);
-    }
-  }
 }

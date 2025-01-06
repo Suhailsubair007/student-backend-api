@@ -6,7 +6,7 @@ import { UserService } from '../../services/user.service';
 export class StudentRoutes {
   public router: Router;
   private studentController: StudentController;
-
+ 
   constructor() {
     this.router = Router();
     const userRepository = new UserRepository();

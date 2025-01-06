@@ -19,13 +19,7 @@ export class AdminRoutes {
   private initializeRoutes() {
     this.router.get(
       '/students',
-    //   authenticate(['admin']),
       this.adminController.getAllStudents.bind(this.adminController)
-    );
-    this.router.patch(
-      '/user/:id',
-    //   authenticate(['admin']),
-      this.adminController.updateUser.bind(this.adminController)
     );
   }
 }

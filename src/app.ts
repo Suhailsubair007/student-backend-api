@@ -1,30 +1,14 @@
-import express, { Application, Request, Response } from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
-import { connect_database } from './config/mongoConnection';
+import AdminRoutes  from './routes/admin/admin.route'
+import StudentRoutes  from './routes/student/student.route'
+
 
 dotenv.config();
-
-const app: Application = express();
-
+const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// app.use(cors());
-
-app.get('/apple', (req: Request, res: Response) => {
-  res.send({
-    message: 'Welcome to the Student Management API!',
-    status: 'success',
-  });
-});
-
-connect_database()
-  .then(() => {
-    console.log('Database connection established..');
-  })
-  .catch((e) => {
-    console.error('Error in connection', e);
-    process.exit(1);
-  });
+app.use('/api/admin', AdminRoutes);
+app.use('/api/student', StudentRoutes);
 
 export default app;

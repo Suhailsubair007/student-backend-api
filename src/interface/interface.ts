@@ -1,10 +1,15 @@
 export interface UserInterface {
-  id: string;
+  _id?: string;
   name: string;
   email: string;
-  course?: string;
   password: string;
-  role: "admin" | "user";
-  isActive?: boolean;
-  enrollmentDate?: Date;
+  role: 'admin' | 'student';
+  isActive: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+export interface LoginCredentials {
+  email: string;
+  password: string;
 }

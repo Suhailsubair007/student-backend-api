@@ -13,7 +13,6 @@ export class UserRepository {
     return User.find();
   }
 
-
   async getUserById(userId: string): Promise<IUserDocument | null> {
     return User.findById(userId);
   }

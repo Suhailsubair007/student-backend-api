@@ -21,6 +21,7 @@ export class AdminRoutes {
       '/students',
       this.adminController.getAllStudents.bind(this.adminController)
     );
+    
   }
 }
 

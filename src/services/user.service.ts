@@ -20,7 +20,7 @@ export class UserService {
     if (!user || !(await bcrypt.compare(password, user.password))) {
       throw new Error('Invalid credentials');
     }
-    
+
     return {
       message: 'Login successful',
       user: {
@@ -32,7 +32,6 @@ export class UserService {
     };
   }
   
-
   async getAllStudents(): Promise<UserInterface[]> {
     return this.userRepository.findAll();
   }

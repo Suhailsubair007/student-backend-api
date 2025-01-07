@@ -9,7 +9,7 @@ export class AdminController {
       const students = await this.adminService.getAllStudents();
       res.json(students);
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      res.status(500).json({ message: error });
     }
   }
 
@@ -18,7 +18,7 @@ export class AdminController {
       const user = await this.adminService.addUser(req.body);
       res.status(201).json(user);
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      res.status(400).json({ message: error });
     }
   }
 
@@ -30,7 +30,7 @@ export class AdminController {
       }
       res.json(user);
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      res.status(400).json({ message: error });
     }
   }
 
@@ -42,7 +42,7 @@ export class AdminController {
       }
       res.json(user);
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      res.status(400).json({ message: error });
     }
   }
 }

@@ -22,12 +22,12 @@ export class StudentController {
     }
   }
 
-  async getProfile(req: Request, res: Response) {
-    try {
-      const profile = await this.studentService.getProfile(req.user.userId);
-      res.json(profile);
-    } catch (error) {
-      res.status(404).json({ message: error });
-    }
-  }
+  // async getProfile(req: Request, res: Response) {
+  //   try {
+  //     const profile = await this.studentService.getProfile(req.user.userId);
+  //     res.json(profile);
+  //   } catch (error) {
+  //     res.status(404).json({ message: error });
+  //   }
+  // }
 }

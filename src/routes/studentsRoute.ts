@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { StudentController } from '../controllers/student.controller';
-import { authMiddleware } from '../middlewares/auth.middleware'
+// import { authMiddleware } from '../middlewares/auth.middleware'
 
 export const createStudentRouter = (studentController: StudentController) => {
   const router = Router();
@@ -9,8 +9,8 @@ export const createStudentRouter = (studentController: StudentController) => {
   router.post('/login', studentController.login.bind(studentController));
   router.get(
     '/profile',
-    authMiddleware(['student']),
-    studentController.getProfile.bind(studentController)
+    // authMiddleware(['student']),
+    // studentController.getProfile.bind(studentController)
   );
 
   return router;
